@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { I18nService } from './services/i18n.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'translate-pipe';
+  name: string = '';
+  constructor(public i18nService: I18nService) { }
+
+  changeLng(lang: string) {
+    this.i18nService.setLanguage(lang);
+  }
 }
